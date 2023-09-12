@@ -1,0 +1,87 @@
+@import url(../main.css);
+.task-request{
+    width:  50% ;
+    margin: 45px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.task-request input[type="text"]{
+    margin-bottom: 6px;
+    background-color: var(--color1);
+    border-style: none;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.task-request input[type="text"]::placeholder{
+    color: white;
+}
+.task-request input[type="text"]:focus{
+    outline: none;
+}
+.task-request input[type="submit"]{
+    font-size: 2em;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-style: none;
+    color: var(--color4);
+}
+.task-request input[type="submit"]:hover{
+    background-color: var(--color2);
+    cursor: pointer;
+    color: white;
+}
+.task-request textarea{
+    margin-bottom: 6px;
+    background-color: var(--color1);
+    border-style: none;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.task-request textarea::placeholder{
+
+    color: white;
+}
+.task-request input[type="radio"]{
+    margin-top: 20px;
+}
+.prioridad{
+    display: flex;
+    justify-content: space-between;
+}
+
+.low{
+    color: green
+
+}
+.list-container{
+    width: 50%;
+    margin: 0 auto;
+}
+.task-container{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 16px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--color1);
+}
+
+.closeBtn{
+    width: 5%;
+    height: auto;
+}
+.closeBtn:hover{
+    cursor: pointer;
+}
+#stats{
+    margin-top: 25px;
+    font-size: 1.3em;
+    color: white;
+    text-align: center;
+}

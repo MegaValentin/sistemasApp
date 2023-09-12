@@ -1,0 +1,24 @@
+@import url(../main.css);
+.tools{
+    
+    width:  50% ;
+    margin: 45px auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+.tools .items{
+    background-color: var(--color3);
+    width: 20vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;  
+}
+.tools .items .btn-tools{
+    
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: black;
+}

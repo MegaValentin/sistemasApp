@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./app/css/main.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <a href="./index.html"><img src="./app/img/icons8-logo-32.png" alt="" class="logo"/></a>
+      <h1>Tareas</h1>
+
+      <form action="#" id="userInput" class="task-request">
+
+        <input type="text" placeholder="Area que solicita la tarea" id="areaSolicitante"/>
+        <textarea class="input" name="" id="task" cols="30" rows="10" placeholder="Tarea"></textarea>
+        <div class="prioridad">
+            <label> 
+                <input type="radio" name="priority" value="low" class="low"/>Baja</label>
+            <label>
+              <input type="radio" name="priority" value="medium" class="medium" />Medio
+            </label>
+            <label>
+                <input type="radio" name="priority" value="high" class="high" /> Alta
+            </label>
+        </div>
+       
+        <input type="submit" value="+" id="addBtn" />
+      </form>
+      <div id="list" class="list-container"></div>
+      <div id="stats"></div>
+      <script type="module" src="./app/app.js"></script>
+    </main>
+  </body>
+</html>

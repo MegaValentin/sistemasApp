@@ -1,0 +1,26 @@
+@import url(../main.css);
+.toner-delivery{
+    width:  50% ;
+    margin: 45px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.toner-delivery input[type="text"],
+.toner-delivery input[type="number"]{
+    margin-bottom: 6px;
+    background-color: var(--color1);
+    border-style: none;
+    font-size: 1.3rem;
+    text-align: center;
+    color: white;
+}
+.toner-delivery input[type="text"]::placeholder
+.toner-delivery input[type="number"]::placeholder{
+    color: white;
+}
+.toner-delivery input[type="text"]:focus,
+.toner-delivery input[type="number"]:focus{
+    outline: none;
+}

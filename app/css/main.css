@@ -1,0 +1,29 @@
+@import url(./imports/calls.css);
+@import url(./imports/index.css);
+@import url(./imports/toner-delivery.css);
+
+:root{
+    --color1: #3E5A5E;
+    --color2: #52D0E3;
+    --color3: #94D5DF;
+    --color4: #22565E;
+    --color5: #71A3AB;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: var(--color4);
+}
+.logo{
+    position: absolute;
+    top: 0px;
+    right: 30px;
+}
+h1{
+    margin-top: 200px;
+    color: white;
+    text-align: center;
+}
