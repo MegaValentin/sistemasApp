@@ -23,14 +23,34 @@ export function deliveryDeToner(){
         const tonerDelivery = {id:idToner, toner:selectedToner, area:selectedArea, cantidad:selectedQuantity}
         
         envio.push(tonerDelivery)
-
+        
+        delivery.innerHTML += `
+        <div class="delivery" id="${idToner}">
+        Toner: ${selectedToner}, Area: ${selectedArea}, Cantidad: ${selectedQuantity}
+            <img src="./app/img/icons8-basura-100.png" class="closeBtn">
+        </div>
+        `
+        console.log(envio)
         toner.value = "";
         area.value = "";
         cantidad.value = ""
         
-        console.log(envio)
+        
     }
+
+    delivery.addEventListener("click", (event) => {
+        console.log(event.srcElement.parentNode.id);
+        if (event.srcElement.nodeName == "IMG") {
+          deleteDelivery(event.srcElement.parentNode.id);
+        }
+        
+    });
+
+    let deleteDelivery = (id) => {
+    let deliveryToDelete = document.getElementById(id);
+    delivery.removeChild(deliveryToDelete);
     
+    };
 
 }
 

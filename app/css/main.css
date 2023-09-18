@@ -1,6 +1,7 @@
 @import url(./imports/calls.css);
 @import url(./imports/index.css);
 @import url(./imports/toner-delivery.css);
+@import url(./imports/stock.css);
 
 :root{
     --color1: #3E5A5E;
@@ -23,7 +24,7 @@ body{
     right: 30px;
 }
 h1{
-    margin-top: 26rem;
+    margin-top: 10rem;
     color: white;
     text-align: center;
     font-size: 5em;

@@ -24,3 +24,37 @@
 .toner-delivery input[type="number"]:focus{
     outline: none;
 }
+.toner-delivery input[type="submit"]{
+    width: 100px;
+    height: auto;
+    color: var(--color4);
+}
+.stock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.toners-container{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.delivery{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 16px;
+    border-radius: 4px;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: var(--color1);
+}
+.closeBtn{
+    width: 5%;
+    height: auto;
+}
+.closeBtn:hover{
+    cursor: pointer;
+}

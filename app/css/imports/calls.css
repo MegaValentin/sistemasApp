@@ -21,9 +21,9 @@
     outline: none;
 }
 .task-request input[type="submit"]{
-    font-size: 3em;
-    width: 50px;
-    height: 50px;
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: none;
     color: var(--color4);
@@ -37,7 +37,7 @@
     margin-bottom: 6px;
     background-color: var(--color1);
     border-style: none;
-    font-size: 2.3rem;
+    font-size: 1.5rem;
     text-align: center;
 }
 .task-request textarea::placeholder{
@@ -50,11 +50,6 @@
 .prioridad{
     display: flex;
     justify-content: space-between;
-}
-
-.low{
-    color: green
-
 }
 .list-container{
     width: 50%;
@@ -70,10 +65,6 @@
     font-size: 2.1em;
     font-weight: 500;
     color: var(--color1);
-}
-input[type="checkbox"]{
-    width: 48px;
-    height: 48px;
 }
 .closeBtn{
     width: 5%;
