@@ -1,4 +1,6 @@
+
 export function stockToner(){
+   
     console.log("stock de toners")
 
     const stock = [
@@ -21,6 +23,7 @@ export function stockToner(){
         {id:17, toner:'32A', stock:10},
         {id:18, toner:'32A', stock:10},
         {id:19, toner:'32A', stock:10},
+        {id:20, toner:'32A', stock:10},
     ]
 
     const tableContainer = document.getElementById('table-container');
@@ -28,25 +31,44 @@ export function stockToner(){
     let tableHTML = 
     `
     <table>
-            <thead>
-                <tr>
-                    <th>Toner</th>
-                    <th>Cantidad</th>
-                </tr>
-            </thead>
-            <tbody>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Toner</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
     `;
     for (const toner of stock) {
         tableHTML += `
             <tr>
+                <td>${toner.id}</td>
                 <td>${toner.toner}</td>
                 <td>${toner.stock}</td>
+                <td><button class="editBtn" data-id="${toner.id}">Editar</button></td>
             </tr>
         `;
     }
-    tableHTML += `
-            </tbody>
-        </table>
+    tableHTML += 
+    `
+        </tbody>
+    </table>
     `;
+
     tableContainer.innerHTML = tableHTML;
+
+    const editButtons = document.querySelectorAll('.editBtn');
+    editButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const tonerId = event.target.getAttribute('data-id');
+            abrirVistaModificacion(tonerId);
+        });
+    });
+    
+    function abrirVistaModificacion(tonerId) {
+        
+        console.log(`Abriendo vista de modificación para el toner ID ${tonerId}`);
+    }
 }
