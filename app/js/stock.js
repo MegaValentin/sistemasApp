@@ -47,7 +47,11 @@ export function stockToner(){
                 <td>${toner.id}</td>
                 <td>${toner.toner}</td>
                 <td>${toner.stock}</td>
-                <td><button class="editBtn" data-id="${toner.id}">Editar</button></td>
+                <td >
+                    <button class="editBtn" data-id="${toner.id}">Editar</button>
+                    <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
+                </td>
+                
             </tr>
         `;
     }
@@ -66,9 +70,22 @@ export function stockToner(){
             abrirVistaModificacion(tonerId);
         });
     });
+
+    const deleteButtons = document.querySelectorAll('.deleteBtn');
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const tonerId = event.target.getAttribute('data-id');
+            eliminarToner(tonerId);
+        });
+    });
     
     function abrirVistaModificacion(tonerId) {
         
         console.log(`Abriendo vista de modificación para el toner ID ${tonerId}`);
     }
+    function eliminarToner(tonerId) {
+        console.log(`Eliminando toner con ID ${tonerId}`);
+        
+    }
+
 }
