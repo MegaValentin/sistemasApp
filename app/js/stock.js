@@ -5,29 +5,53 @@ export function stockToner(){
 
     const stock = [
         {id:1, toner:'32A', stock:10},
-        {id:2, toner:'32A', stock:10},
-        {id:3, toner:'32A', stock:10},
-        {id:4, toner:'32A', stock:10},
-        {id:5, toner:'32A', stock:10},
-        {id:6, toner:'32A', stock:10},
+        {id:2, toner:'32A', stock:1},
+        {id:3, toner:'32A', stock:3},
+        {id:4, toner:'32A', stock:6},
+        {id:5, toner:'32A', stock:8},
+        {id:6, toner:'32A', stock:9},
         {id:7, toner:'32A', stock:10},
-        {id:8, toner:'32A', stock:10},
-        {id:9, toner:'32A', stock:10},
-        {id:10, toner:'32A', stock:10},
-        {id:11, toner:'32A', stock:10},
-        {id:12, toner:'32A', stock:10},
-        {id:13, toner:'32A', stock:10},
-        {id:14, toner:'32A', stock:10},
-        {id:15, toner:'32A', stock:10},
-        {id:16, toner:'32A', stock:10},
-        {id:17, toner:'32A', stock:10},
-        {id:18, toner:'32A', stock:10},
-        {id:19, toner:'32A', stock:10},
-        {id:20, toner:'32A', stock:10},
+        {id:8, toner:'32A', stock:2},
+        {id:9, toner:'32A', stock:23},
+        {id:10, toner:'32A', stock:1},
+        {id:11, toner:'32A', stock:6},
+        {id:12, toner:'32A', stock:7},
+        {id:13, toner:'32A', stock:13},
+        {id:14, toner:'32A', stock:19},
+        {id:15, toner:'32A', stock:4},
+        {id:16, toner:'32A', stock:9},
+        {id:17, toner:'32A', stock:5},
+        {id:18, toner:'32A', stock:2},
+        {id:19, toner:'32A', stock:3},
+        {id:20, toner:'32A', stock:7},
     ]
     
+    function actualizarTabla() {
+        const tbody = document.querySelector('tbody');
+        tbody.innerHTML = '';
+    
+        for (const toner of stock) {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${toner.id}</td>
+                    <td>${toner.toner}</td>
+                    <td>${toner.stock}</td>
+                    <td>
+                        <button class="editBtn" data-id="${toner.id}" data-toner="${toner.toner}" data-stock="${toner.stock}">Editar</button>
+                        <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
+                    </td>
+                </tr>
+            `;
+        }
+    
+        asignarEventListeners();
+    }
+
     const tableContainer = document.getElementById('table-container');
     const addFormContainer = document.getElementById('addFormContainer')
+    const editFormContainer = document.getElementById('editFormContainer')
+
+    //Agregar toner
     let formHTML = 
     `
         <h3>Agregar Toner</h3>
@@ -40,8 +64,6 @@ export function stockToner(){
     
     addFormContainer.innerHTML = formHTML;
     addToner.addEventListener("submit", (event) => {
-        
-        
         event.preventDefault();
         agregarToner();
     });
@@ -66,30 +88,13 @@ export function stockToner(){
         
         console.log(stock)
 
-        const tbody = document.querySelector('tbody');
-            tbody.innerHTML = '';
-
-            for (const toner of stock) {
-                tbody.innerHTML += `
-                    <tr>
-                        <td>${toner.id}</td>
-                        <td>${toner.toner}</td>
-                        <td>${toner.stock}</td>
-                        <td>
-                            <button class="editBtn" data-id="${toner.id}">Editar</button>
-                            <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
-                        </td>
-                    </tr>
-                `;
-            }
-            
+        actualizarTabla();
         asignarEventListeners();
 
     }
-    
+    //Tabla de stock
     let tableHTML = 
     `
-    
     <table>
         <thead>
             <tr>
@@ -97,6 +102,7 @@ export function stockToner(){
                 <th>Toner</th>
                 <th>Cantidad</th>
                 <th>Acciones</th>
+                <th class="mas"><a href="#addToner" class="mas">+</a></th>
             </tr>
         </thead>
         <tbody>
@@ -108,10 +114,9 @@ export function stockToner(){
                 <td>${toner.toner}</td>
                 <td>${toner.stock}</td>
                 <td >
-                    <button class="editBtn" data-id="${toner.id}">Editar</button>
+                    <button class="editBtn" data-id="${toner.id}" data-toner="${toner.toner}" data-stock="${toner.stock}">Editar</button>
                     <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
                 </td>
-                
             </tr>
         `;
     }
@@ -128,7 +133,10 @@ export function stockToner(){
         editButtons.forEach((button) => {
             button.addEventListener('click', (event) => {
                 const tonerId = event.target.getAttribute('data-id');
-                abrirVistaModificacion(tonerId);
+                const tonerToner = event.target.getAttribute('data-toner')
+                const tonerStock = event.target.getAttribute('data-stock')
+
+                abrirVistaModificacion(tonerId, tonerToner, tonerStock);
             });
         });
 
@@ -142,12 +150,48 @@ export function stockToner(){
        
     }
     
-    function abrirVistaModificacion(tonerId) {
-        const tonerIndex = stock.findIndex(toner => toner.id == tonerId);
-        console.log(`Editar ${tonerId}`);
+    function abrirVistaModificacion(tonerId, tonerToner, tonerStock) {
         
+        let editFormHTML = 
+        `
+            <h3>Editar Toner</h3>
+            <form action="#" id="editToner" class="editToner">
+                <input type="text" placeholder="Toner" id="editInk" required/>
+                <input type="number" placeholder="Cantidad" id="editQuantityToner" required/>
+                <input type="submit" value="Editar" id="editar"/>
+            </form>
+        `;
+    
+        editFormContainer.innerHTML = editFormHTML;
+
+        const tonerIndex = stock.findIndex(toner => toner.id == tonerId);
+        if (tonerIndex !== -1) {
+            editToner.addEventListener("submit", (event) => {
+                event.preventDefault();
+                editarToner(tonerIndex);
+                let editFormHTML = ` `;
+                editFormContainer.innerHTML = editFormHTML;
+            });
+ 
+        } else {
+            console.log(`Toner con ID ${tonerId} no encontrado.`);
+        }
+    
         
     }
+    function editarToner(tonerIndex){
+        const editInk = document.querySelector('#editInk')
+        const editQuantityToner = document.querySelector('#editQuantityToner')
+        
+        stock[tonerIndex].toner = editInk.value;
+        stock[tonerIndex].stock = editQuantityToner.value;
+        
+        console.log(`Toner editado: ${JSON.stringify(stock[tonerIndex])}`);
+
+        
+        actualizarTabla();
+    }
+   
     function eliminarToner(tonerId) {    
        // Buscar el índice del toner con el ID dado
        const tonerIndex = stock.findIndex(toner => toner.id == tonerId);
@@ -155,30 +199,12 @@ export function stockToner(){
         if (tonerIndex !== -1) {
         // Eliminar el toner de la lista
             stock.splice(tonerIndex, 1);
-            const tbody = document.querySelector('tbody');
-            tbody.innerHTML = '';
 
-            for (const toner of stock) {
-                tbody.innerHTML += `
-                    <tr>
-                        <td>${toner.id}</td>
-                        <td>${toner.toner}</td>
-                        <td>${toner.stock}</td>
-                        <td>
-                            <button class="editBtn" data-id="${toner.id}">Editar</button>
-                            <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
-                        </td>
-                    </tr>
-                `;
-            }
-
-        // Volver a asignar los event listeners a los nuevos botones
-        asignarEventListeners();
+            actualizarTabla();
+            asignarEventListeners();
         }
     }
-
     
-    // Asignar los event listeners por primera vez
     asignarEventListeners();
 
 }
