@@ -25,11 +25,70 @@ export function stockToner(){
         {id:19, toner:'32A', stock:10},
         {id:20, toner:'32A', stock:10},
     ]
-
+    
     const tableContainer = document.getElementById('table-container');
+    const addFormContainer = document.getElementById('addFormContainer')
+    let formHTML = 
+    `
+    
+        <form action="#" id="addToner" class="addBtn">
+            <input type="text" placeholder="Toner" id="ink" required/>
+            <input type="number" placeholder="Cantidad" id="quantityToner" required/>
+            <input type="submit" value="AGREGAR" id="pedido"/>
+        </form>
+    `;
+    
+    addFormContainer.innerHTML = formHTML;
+    addToner.addEventListener("submit", (event) => {
+        
+        
+        event.preventDefault();
+        agregarToner();
+    });
+    const ink = document.querySelector('#ink')
+    const quantityToner = document.querySelector('#quantityToner')
+    
+    function agregarToner(){
 
+        let selectedToner = ink.value;
+        let selectedQuantity = quantityToner.value
+        let ultimaId;
+        for (const toner of stock) {
+            ultimaId = toner.id
+        }
+        ultimaId++
+        const addStock = {id:ultimaId,toner:selectedToner, stock:selectedQuantity}
+
+        stock.push(addStock)
+        
+        ink.value = "";
+        quantityToner.value = ""
+        console.log(stock)
+
+        const tbody = document.querySelector('tbody');
+            tbody.innerHTML = '';
+
+            for (const toner of stock) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${toner.id}</td>
+                        <td>${toner.toner}</td>
+                        <td>${toner.stock}</td>
+                        <td>
+                            <button class="editBtn" data-id="${toner.id}">Editar</button>
+                            <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            }
+            
+        asignarEventListeners();
+
+    }
+    
     let tableHTML = 
     `
+    
     <table>
         <thead>
             <tr>
@@ -60,32 +119,63 @@ export function stockToner(){
         </tbody>
     </table>
     `;
-
     tableContainer.innerHTML = tableHTML;
+    
 
-    const editButtons = document.querySelectorAll('.editBtn');
-    editButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            const tonerId = event.target.getAttribute('data-id');
-            abrirVistaModificacion(tonerId);
+    function asignarEventListeners() {
+        const editButtons = document.querySelectorAll('.editBtn');
+        editButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const tonerId = event.target.getAttribute('data-id');
+                abrirVistaModificacion(tonerId);
+            });
         });
-    });
 
-    const deleteButtons = document.querySelectorAll('.deleteBtn');
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            const tonerId = event.target.getAttribute('data-id');
-            eliminarToner(tonerId);
+        const deleteButtons = document.querySelectorAll('.deleteBtn');
+        deleteButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const tonerId = event.target.getAttribute('data-id');
+                eliminarToner(tonerId);
+            });
         });
-    });
+       
+    }
     
     function abrirVistaModificacion(tonerId) {
         
         console.log(`Abriendo vista de modificación para el toner ID ${tonerId}`);
     }
-    function eliminarToner(tonerId) {
-        console.log(`Eliminando toner con ID ${tonerId}`);
-        
+    function eliminarToner(tonerId) {    
+       // Buscar el índice del toner con el ID dado
+       const tonerIndex = stock.findIndex(toner => toner.id == tonerId);
+       console.log(`Eliminar ${tonerId}`);
+        if (tonerIndex !== -1) {
+        // Eliminar el toner de la lista
+            stock.splice(tonerIndex, 1);
+            const tbody = document.querySelector('tbody');
+            tbody.innerHTML = '';
+
+            for (const toner of stock) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${toner.id}</td>
+                        <td>${toner.toner}</td>
+                        <td>${toner.stock}</td>
+                        <td>
+                            <button class="editBtn" data-id="${toner.id}">Editar</button>
+                            <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            }
+
+        // Volver a asignar los event listeners a los nuevos botones
+        asignarEventListeners();
+        }
     }
+
+    
+    // Asignar los event listeners por primera vez
+    asignarEventListeners();
 
 }
