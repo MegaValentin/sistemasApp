@@ -28,7 +28,8 @@ th {
 td{
     color: white;
 }
-.addBtn{
+.addBtn,
+.editToner{
     width:  10% ;
     margin: 10px auto;
     text-align: center;
@@ -37,7 +38,9 @@ td{
     align-items: center;
 }
 .addBtn input[type="text"],
-.addBtn input[type="number"]{
+.addBtn input[type="number"],
+.editToner input[type="text"],
+.editToner input[type="number"]{
     margin-bottom: 6px;
     background-color: var(--color1);
     border-style: none;
