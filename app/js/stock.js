@@ -30,11 +30,11 @@ export function stockToner(){
     const addFormContainer = document.getElementById('addFormContainer')
     let formHTML = 
     `
-    
+        <h3>Agregar Toner</h3>
         <form action="#" id="addToner" class="addBtn">
             <input type="text" placeholder="Toner" id="ink" required/>
             <input type="number" placeholder="Cantidad" id="quantityToner" required/>
-            <input type="submit" value="AGREGAR" id="pedido"/>
+            <input type="submit" value="+" id="pedido"/>
         </form>
     `;
     
@@ -63,6 +63,7 @@ export function stockToner(){
         
         ink.value = "";
         quantityToner.value = ""
+        
         console.log(stock)
 
         const tbody = document.querySelector('tbody');
@@ -142,8 +143,10 @@ export function stockToner(){
     }
     
     function abrirVistaModificacion(tonerId) {
+        const tonerIndex = stock.findIndex(toner => toner.id == tonerId);
+        console.log(`Editar ${tonerId}`);
         
-        console.log(`Abriendo vista de modificación para el toner ID ${tonerId}`);
+        
     }
     function eliminarToner(tonerId) {    
        // Buscar el índice del toner con el ID dado
