@@ -150,7 +150,7 @@ export function stockToner(){
        
     }
     
-    function abrirVistaModificacion(tonerId, tonerToner, tonerStock) {
+    function abrirVistaModificacion(tonerId) {
         
         let editFormHTML = 
         `

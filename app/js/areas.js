@@ -147,7 +147,7 @@ export function areas(){
         const areaIndex = areas.findIndex(area => area.id == officeId);
        console.log(`Editar ${officeId}`);
         if (areaIndex !== -1){
-            editOfficeFormContainer.addEventListener("submit", (event) =>{
+            editOffice.addEventListener("submit", (event) =>{
                 event.preventDefault();
                 editarArea(areaIndex);
                 let editFormOfficeHTML = ``;
@@ -166,7 +166,7 @@ export function areas(){
         console.log(`Toner editado: ${JSON.stringify(areas[areaIndex])}`);
 
         actualizarTablaArea()
-        asignarEventListeners();
+        
     }
     
     function eliminarArea(officeId){
