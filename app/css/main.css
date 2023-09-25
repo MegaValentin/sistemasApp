@@ -2,6 +2,7 @@
 @import url(./imports/index.css);
 @import url(./imports/toner-delivery.css);
 @import url(./imports/stock.css);
+@import url(./imports/areas.css);
 
 :root{
     --color1: #3E5A5E;

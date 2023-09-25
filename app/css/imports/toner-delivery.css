@@ -29,9 +29,9 @@
     height: auto;
     color: var(--color4);
 }
-.stock{
+.control{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     
 }
