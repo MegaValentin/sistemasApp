@@ -1,0 +1,174 @@
+{
+    "toners": [
+        {
+            "id":1,
+            "toner": "12A",
+            "cantidad": 11
+        },
+        {
+            "id":2,
+            "toner": "17A",
+            "cantidad": 6
+        },
+        {
+            "id":3,
+            "toner": "24A",
+            "cantidad": 0
+        },
+        {
+            "id":4,
+            "toner": "226A",
+            "cantidad": 6
+        },
+        {
+            "id":4,
+            "toner": "30A",
+            "cantidad": 2
+        },
+        {
+            "id":5,
+            "toner": "48A",
+            "cantidad": 7
+        },
+        {
+            "id":6,
+            "toner": "53A/49A",
+            "cantidad": 4
+        },
+        {
+            "id":7,
+            "toner": "58A",
+            "cantidad": 12
+        },
+        {
+            "id":8,
+            "toner": "64A",
+            "cantidad": 3
+        },
+        {
+            "id":9,
+            "toner": "78A",
+            "cantidad": 5
+        },
+        {
+            "id":10,
+            "toner": "79A",
+            "cantidad": 7
+        },
+        {
+            "id":11,
+            "toner": "80A/505U/UNI05",
+            "cantidad": 14
+        },
+        {
+            "id":12,
+            "toner": "83A",
+            "cantidad": 9
+        },
+        {
+            "id":13,
+            "toner": "CB435A CE285A",
+            "cantidad": 11
+        },
+        {
+            "id":14,
+            "toner": "LA-HP105A CON CHIP",
+            "cantidad": 5
+        },
+        {
+            "id":15,
+            "toner": "104A para Neverstop",
+            "cantidad": 1
+        },
+        {
+            "id":16,
+            "toner": "103A para Neverstop",
+            "cantidad": 15
+        },
+        {
+            "id":17,
+            "toner": "ML2850",
+            "cantidad": 0
+        },
+        {
+            "id":18,
+            "toner": "MLTD1043S/SAMD104S",
+            "cantidad": 2
+        },
+        {
+            "id":19,
+            "toner": "MLTD203",
+            "cantidad": 2
+        },
+        {
+            "id":20,
+            "toner": "S-MLT111S",
+            "cantidad": 15
+        },
+        {
+            "id":21,
+            "toner": "TN2370",
+            "cantidad": 3
+        },
+        {
+            "id":22,
+            "toner": "TN1060",
+            "cantidad": 4
+        },
+        {
+            "id":23,
+            "toner": "TN410/420/450",
+            "cantidad": 4
+        },
+        {
+            "id":24,
+            "toner": "BTN660",
+            "cantidad": 4
+        },
+        {
+            "id":25,
+            "toner": "TN880",
+            "cantidad": 1
+        },
+        {
+            "id":26,
+            "toner": "PD-219",
+            "cantidad": 3
+        },
+        {
+            "id":27,
+            "toner": "KM 1500",
+            "cantidad": 1
+        },
+        {
+            "id":28,
+            "toner": "TK1132",
+            "cantidad": 0
+        },
+        {
+            "id":29,
+            "toner": "SP 3710",
+            "cantidad": 2
+        },
+        {
+            "id":30,
+            "toner": "MP301 spf (Tubo Chico)",
+            "cantidad": 3
+        },
+        {
+            "id":31,
+            "toner": " IM600 (P800, P801,IM550F)",
+            "cantidad": 3
+        },
+        {
+            "id":32,
+            "toner": "MP 1900",
+            "cantidad": 0
+        },
+        {
+            "id":34,
+            "toner": "PD211",
+            "cantidad": 0
+        }
+    ]
+}
