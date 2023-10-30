@@ -1,49 +1,32 @@
 
 export function stockToner(){
-   
+    const stock = '/app/data/stock.json'
     console.log("stock de toners")
+    cargarDatos(stock)
+    function cargarDatos(url) {
+        fetch(url).then(res => res.json()).then(dato => {
+            console.log(dato.productos)
+            actualizarTabla(dato.toners)
+        })
+    }
 
-    const stock = [
-        {id:1, toner:'32A', stock:10},
-        {id:2, toner:'32A', stock:1},
-        {id:3, toner:'32A', stock:3},
-        {id:4, toner:'32A', stock:6},
-        {id:5, toner:'32A', stock:8},
-        {id:6, toner:'32A', stock:9},
-        {id:7, toner:'32A', stock:10},
-        {id:8, toner:'32A', stock:2},
-        {id:9, toner:'32A', stock:23},
-        {id:10, toner:'32A', stock:1},
-        {id:11, toner:'32A', stock:6},
-        {id:12, toner:'32A', stock:7},
-        {id:13, toner:'32A', stock:13},
-        {id:14, toner:'32A', stock:19},
-        {id:15, toner:'32A', stock:4},
-        {id:16, toner:'32A', stock:9},
-        {id:17, toner:'32A', stock:5},
-        {id:18, toner:'32A', stock:2},
-        {id:19, toner:'32A', stock:3},
-        {id:20, toner:'32A', stock:7},
-    ]
-    
-    function actualizarTabla() {
-        const tbody = document.querySelector('tbody');
+    function actualizarTabla(dato) {
+      const tbody = document.querySelector('tbody');
         tbody.innerHTML = '';
-    
-        for (const toner of stock) {
-            tbody.innerHTML += `
+        dato.forEach(toners => {
+            const {id,toner,cantidad} = toners;
+             tbody.innerHTML += `
                 <tr>
-                    <td>${toner.id}</td>
-                    <td>${toner.toner}</td>
-                    <td>${toner.stock}</td>
+                    <td>${id}</td>
+                    <td>${toner}</td>
+                    <td>${cantidad}</td>
                     <td>
-                        <button class="editBtn" data-id="${toner.id}" data-toner="${toner.toner}" data-stock="${toner.stock}">Editar</button>
-                        <button class="deleteBtn" data-id="${toner.id}">Eliminar</button>
+                        <button class="editBtn" data-id="${id}" data-toner="${toner}" data-stock="${cantidad}">Editar</button>
+                        <button class="deleteBtn" data-id="${id}">Eliminar</button>
                     </td>
                 </tr>
-            `;
-        }
-    
+            `; 
+        });
         asignarEventListeners();
     }
 
