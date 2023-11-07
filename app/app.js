@@ -2,7 +2,7 @@ import { deliveryDeToner } from "./js/tonerDelivery.js";
 import { toDoList } from "./js/calls.js";
 import { stockToner } from "./js/stock.js";
 import { areas } from "./js/areas.js";
-import { prueba } from "./js/pruebadestock.js";
+
 
 function getCurrentFileName() {
     let pathArray = window.location.pathname.split('/');
@@ -18,7 +18,7 @@ else if (currentFileName === 'calls.html') {
     toDoList();
 }
 else if (currentFileName === 'stock.html') {
-    prueba();
+    stockToner();
 }
 else if (currentFileName === 'areas.html'){
     areas();
