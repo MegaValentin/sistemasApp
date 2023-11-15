@@ -30,10 +30,15 @@
     color: var(--color4);
 }
 .control{
+    width:  20% ;
+    margin: 45px auto;
+    text-align: center;
     display: flex;
-    flex-direction: column-reverse;
+    justify-content: space-between;
     align-items: center;
-    
+}
+.control .area img{
+    width: 4.2em;
 }
 .toners-container{
     width: 80%;

@@ -47,17 +47,6 @@ export function prueba(){
         asignarEventListeners()
     }
     function asignarEventListeners() {
-        const editButtons = document.querySelectorAll('.editBtn');
-        editButtons.forEach((button) => {
-            button.addEventListener('click', (event) => {
-                const tonerId = event.target.getAttribute('data-id');
-                const tonerToner = event.target.getAttribute('data-toner')
-                const tonerStock = event.target.getAttribute('data-stock')
-
-                abrirVistaModificacion(tonerId, tonerToner, tonerStock);
-            });
-        });
-
         const deleteButtons = document.querySelectorAll('.deleteBtn');
         deleteButtons.forEach((button) => {
             button.addEventListener('click', (event) => {
