@@ -2,6 +2,7 @@ import { deliveryDeToner } from "./js/tonerDelivery.js";
 import { toDoList } from "./js/calls.js";
 import { stockToner } from "./js/stock.js";
 import { areas } from "./js/areas.js";
+import { pedidoToner } from "./js/pedidoToner.js";
 
 
 function getCurrentFileName() {
@@ -22,4 +23,7 @@ else if (currentFileName === 'stock.html') {
 }
 else if (currentFileName === 'areas.html'){
     areas();
+}
+else if(currentFileName === 'pedidoToner.html'){
+    pedidoToner();
 }
