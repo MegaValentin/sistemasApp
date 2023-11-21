@@ -1,0 +1,59 @@
+.pedidoToner{
+    width:  50% ;
+    margin: 45px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    position: relative; /* Añadido */
+    top: 50%; /* Añadido */
+    
+}
+.pedidoToner select,
+.pedidoToner input[type="number"]{
+    width: 20rem;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    background-color: var(--color1);
+    border-style: none;
+    font-size: 1.3rem;
+    text-align: center;
+    color: white;
+}
+.pedidoToner select::placeholder
+.pedidoToner input[type="number"]::placeholder{
+    color: white;
+}
+.pedidoToner select:focus,
+.pedidoToner input[type="number"]:focus{
+    outline: none;
+}
+.pedidoToner input[type="submit"]{
+    width: 100px;
+    height: auto;
+    color: var(--color4);
+}
+.mensaje {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.control{
+    width:  20% ;
+    margin: 45px auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Añadido */
+    top: 50%; /* Añadido */
+    
+}
+.control .area img{
+    width: 4.2em;
+}
