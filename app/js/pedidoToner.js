@@ -78,7 +78,7 @@ export function pedidoToner() {
         const selectedAreaName = await obtenerNombreSeleccionado(listaAreas, selectedAreaId, 'areas');
         const selectedTonerName = await obtenerNombreSeleccionado(listaStock, selectedTonerId, 'toners');
 
-        const entrega = {"AREA": selectedAreaName, "TONER": selectedTonerName, "Cantidad": cantidad};
+        const entrega = {"AREA": selectedAreaName, "TONER": selectedTonerName, "CANTIDAD": cantidad};
        
         historialEntregas.push(entrega)
         console.log(historialEntregas);

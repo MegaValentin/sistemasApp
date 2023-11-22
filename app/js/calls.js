@@ -1,31 +1,42 @@
 export function toDoList() {
+  
   let idCounter = 0;
-  const input = document.querySelector('#areaSolicitante');
-  const textarea = document.querySelector('#task')
+  
+
+  const formulario = document.getElementById('calls')
+    const formHTML = `
+
+    <h1>Tareas</h1>
+
+    <form action="#" id="userInput" class="task-request">
+      <input type="text" placeholder="Area que solicita la tarea" id="areaSolicitante" required/>
+      <textarea class="input" name="" id="task" cols="30" rows="10" placeholder="Tarea" required></textarea>
+      <input type="submit" value="+" id="addBtn" />
+    </form>
+    `;
+    formulario.innerHTML = formHTML;
 
   userInput.addEventListener("submit", (event) => {
     event.preventDefault();
     addTask();
   });
   
-  let addTask = () => {
+  function addTask()  {
     idCounter++;
-
-    let newValue = input.value;
-    let newText = textarea.value
+    const newValue = areaSolicitante.value
+    const newTask = task.value
     list.innerHTML += ` 
     <div class="task-container" id="${idCounter}">
+    <input type="checkbox">
         <label>
-            <input type="checkbox">
             ${newValue}
-            ${newText}
+            ${newTask}
         </label>
         <img src="./app/img/icons8-basura-100.png" class="closeBtn">
     </div>
     `;
-
-    input.value = "";
-    textarea.value = ""
+    areaSolicitante.value = "";
+    task.value = ""
     updateStates();
   };
 
