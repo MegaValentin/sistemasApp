@@ -1,5 +1,5 @@
 export function pedidoToner() {
-
+    
     const listaStock = './app/data/stock.json';
     const listaAreas = './app/data/areas.json';
     const historialEntregas = [];
