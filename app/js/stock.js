@@ -44,7 +44,8 @@ export function stockToner() {
                         <th>Toner</th>
                         <th>Cantidad</th>
                         <th>Acciones</th>
-                        <th class="mas"><a href="#addToner" class="mas">+</a></th>
+                        
+                        <th class="mas"><a href="./orderToner.html" class="mas">VOLVER</a></th>
                     </tr>
                 </thead>
                 <tbody>
