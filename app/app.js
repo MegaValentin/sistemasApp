@@ -1,7 +1,8 @@
 import { toDoList } from "./js/calls.js";
 import { stockToner } from "./js/stock.js";
 import { areas } from "./js/areas.js";
-import { pedidoToner } from "./js/pedidoToner.js";
+import { orderToner } from "./js/orderToner.js";
+import { orderGenerator } from "./js/orderGenerator.js";
 
 
 function getCurrentFileName() {
@@ -11,8 +12,8 @@ function getCurrentFileName() {
 
 const currentFileName = getCurrentFileName();
 
-if(currentFileName === 'pedidoToner.html'){
-    pedidoToner();
+if(currentFileName === 'orderToner.html'){
+    orderToner();
 }
 else if (currentFileName === 'calls.html') {
     toDoList();
@@ -22,4 +23,7 @@ else if (currentFileName === 'stock.html') {
 }
 else if (currentFileName === 'areas.html'){
     areas();
+}
+else if(currentFileName === "orderGenerator.html"){
+    orderGenerator("hola")
 }
