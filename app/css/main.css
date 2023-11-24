@@ -3,7 +3,7 @@
 @import url(./imports/stock.css);
 @import url(./imports/areas.css);
 @import url(./imports/pedidoToner.css);
-
+@import url(./imports/orderGernerator.css);
 :root{
     --color1: #3E5A5E;
     --color2: #52D0E3;

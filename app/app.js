@@ -25,5 +25,5 @@ else if (currentFileName === 'areas.html'){
     areas();
 }
 else if(currentFileName === "orderGenerator.html"){
-    orderGenerator("hola")
+    orderGenerator()
 }
