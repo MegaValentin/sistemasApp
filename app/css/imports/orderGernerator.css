@@ -1,0 +1,16 @@
+.stockIdeal {
+    margin-top: 20px;
+    color: white;
+}
+
+.fila-tabla {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.fila-tabla span {
+    flex: 1;
+    text-align: center;
+}
