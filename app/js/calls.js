@@ -1,41 +1,49 @@
+import cargarOptions from "./utility.js";
+
 export function toDoList() {
-  
+
   let idCounter = 0;
-  
+  const listaAreas = './app/data/areas.json';
 
   const formulario = document.getElementById('calls')
-    const formHTML = `
+  const formHTML = `
 
     <h1>Tareas</h1>
 
     <form action="#" id="userInput" class="task-request">
-      <input type="text" placeholder="Area que solicita la tarea" id="areaSolicitante" required/>
+           <label for="areaSelect">Área:</label>
+            <select id="areaSelect" name="area" required>
+                <option value="" disabled selected>Selecciona un área</option>
+            </select>
+      
       <textarea class="input" name="" id="task" cols="30" rows="10" placeholder="Tarea" required></textarea>
       <input type="submit" value="+" id="addBtn" />
     </form>
     `;
-    formulario.innerHTML = formHTML;
+  formulario.innerHTML = formHTML;
+
+  cargarOptions(listaAreas, areaSelect, 'areas');
 
   userInput.addEventListener("submit", (event) => {
     event.preventDefault();
     addTask();
   });
-  
-  function addTask()  {
+
+  function addTask() {
     idCounter++;
-    const newValue = areaSolicitante.value
+    const newValue = areaSelect.value
     const newTask = task.value
     list.innerHTML += ` 
     <div class="task-container" id="${idCounter}">
     <input type="checkbox">
         <label>
-            ${newValue}
+           "${newValue}" :
             ${newTask}
         </label>
         <img src="./app/img/icons8-basura-100.png" class="closeBtn">
     </div>
     `;
-    areaSolicitante.value = "";
+    areaSelect.value = "";
     task.value = ""
     updateStates();
   };
@@ -66,14 +74,16 @@ export function toDoList() {
   };
 
   const checkboxes = document.querySelectorAll('.dificultad input[type="checkbox"]');
-    
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-            checkboxes.forEach(otherCheckbox => {
-                if (otherCheckbox !== checkbox) {
-                    otherCheckbox.checked = false;
-                }
-            });
-        });
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      checkboxes.forEach(otherCheckbox => {
+        if (otherCheckbox !== checkbox) {
+          otherCheckbox.checked = false;
+        }
+      });
     });
+  });
+
+ 
 }
