@@ -1,4 +1,5 @@
 import cargarOptions from "./utility.js";
+import { obtenerNombreSeleccionado } from "./utility.js";
 
 export function toDoList() {
 
@@ -29,15 +30,16 @@ export function toDoList() {
     addTask();
   });
 
-  function addTask() {
+  async function addTask() {
     idCounter++;
-    const newValue = areaSelect.value
+    const selectedAreaId = areaSelect.value;
+    const selectedAreaName =  await obtenerNombreSeleccionado(listaAreas, selectedAreaId, 'areas');
     const newTask = task.value
     list.innerHTML += ` 
     <div class="task-container" id="${idCounter}">
     <input type="checkbox">
         <label>
-           "${newValue}" :
+           "${selectedAreaName}" :
             ${newTask}
         </label>
         <img src="./app/img/icons8-basura-100.png" class="closeBtn">
