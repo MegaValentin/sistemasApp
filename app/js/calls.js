@@ -12,7 +12,7 @@ export function toDoList() {
     <h1>Tareas</h1>
 
     <form action="#" id="userInput" class="task-request">
-           <label for="areaSelect">Área:</label>
+           
             <select id="areaSelect" name="area" required>
                 <option value="" disabled selected>Selecciona un área</option>
             </select>

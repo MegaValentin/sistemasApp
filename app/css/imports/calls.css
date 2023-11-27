@@ -6,6 +6,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+}
+.task-request select{
+    width: 20rem;
+    margin-bottom: 10px;
+    background-color: var(--color1);
+    border-style: none;
+    font-size: 1.3rem;
+    text-align: center;
+    color: white;
 }
 .task-request input[type="text"]{
     margin-bottom: 6px;
@@ -34,6 +44,7 @@
     color: white;
 }
 .task-request textarea{
+    margin-top: 10px;
     margin-bottom: 6px;
     background-color: var(--color1);
     border-style: none;

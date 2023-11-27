@@ -1,6 +1,6 @@
 export function orderGenerator(){
-    const tablaStockActualizado = document.getElementById('stockIdeal');
-
+    const stockIdeal = document.getElementById('stockIdeal');
+    
     async function cargarDatos() {
         try {
             const responseStock = await fetch('./app/data/stock.json');
@@ -21,6 +21,20 @@ export function orderGenerator(){
     }
     
     function actualizarStock(stock, recomendados) {
+        
+        const tablaStockActualizado  = document.createElement('table');
+        tablaStockActualizado.id = 'stockIdeal';
+        tablaStockActualizado.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Toner</th>
+                    <th>Cantidad Agregada</th>
+                </tr>
+            </thead>
+            <tbody id="tablaStockActualizado">
+            </tbody>
+        `;
+
         recomendados.forEach(recomendado => {
             const tonerStock = stock.find(toner => toner.id === recomendado.id);
     
@@ -31,22 +45,22 @@ export function orderGenerator(){
                     tonerStock.cantidad += cantidadNecesaria;
     
                     console.log(`Se agregaron ${cantidadNecesaria} unidades de ${recomendado.toner}. Nuevo stock: ${tonerStock.cantidad}`);
-                    agregarFilaATabla(recomendado.toner, cantidadNecesaria);
+                    agregarFilaATabla(tablaStockActualizado , recomendado.toner, cantidadNecesaria);
                 }
             } else {
                 console.warn(`Toner ${recomendado.toner} no encontrado en el stock.`);
             }
         });
     
-        
+        stockIdeal.appendChild(tablaStockActualizado )
     }
-    function agregarFilaATabla(toner, cantidad) {
-        const fila = document.createElement('div');
-        fila.classList.add('fila-tabla');
+    function agregarFilaATabla(tabla, toner, cantidad) {
+        const fila = document.createElement('tr');
         fila.innerHTML = `
-        <span>${toner}</span><span>${cantidad}</span>
+            <td>${toner}</td>
+            <td>${cantidad}</td>
         `;
-        tablaStockActualizado.appendChild(fila);
+        tabla.querySelector('#tablaStockActualizado').appendChild(fila);
     }
     
     cargarDatos();

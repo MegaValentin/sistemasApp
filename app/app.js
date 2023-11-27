@@ -3,7 +3,7 @@ import { stockToner } from "./js/stock.js";
 import { areas } from "./js/areas.js";
 import { orderToner } from "./js/orderToner.js";
 import { orderGenerator } from "./js/orderGenerator.js";
-
+import { historialEntregas } from "./js/historialEntrega.js";
 
 function getCurrentFileName() {
     let pathArray = window.location.pathname.split('/');
@@ -26,4 +26,7 @@ else if (currentFileName === 'areas.html'){
 }
 else if(currentFileName === "orderGenerator.html"){
     orderGenerator()
+}
+else if(currentFileName === "historialEntrega.html"){
+    historialEntregas()
 }
