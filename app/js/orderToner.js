@@ -1,5 +1,5 @@
 import  cargarOptions  from "./utility.js";
-
+import { obtenerNombreSeleccionado } from "./utility.js";
 
 export function orderToner() {
     
@@ -7,19 +7,7 @@ export function orderToner() {
     const listaAreas = './app/data/areas.json';
     const historialEntregas = [];
 
-   
-
-    async function obtenerNombreSeleccionado(url, selectedId, propertyName) {
-        const data = await fetch(url)
-            .then(res => res.json())
-            .catch(error => {
-                console.error('Error al obtener el nombre del elemento seleccionado:', error);
-                return 'Error';
-            });
     
-        const selectedItem = data[propertyName].find(item => item.id == selectedId);
-        return selectedItem ? selectedItem.area || selectedItem.toner : 'No encontrado';
-    }
     const formulario = document.getElementById('formToner')
     const formHTML = `
 
